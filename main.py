@@ -4,8 +4,11 @@ class Client(discord.Client):
     async def on_ready(self):
         print(f'Logged on as {self.user}!')
 
+    async def on_message(self, message):
+        print(f'Message from {message.author}: {message.content}')
+
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = Client(intents=intents)
-client.run('MTMwNzQ5MjEyNzE4NTQzNjczNQ.GWmkno.AW1KiloEVsuobhuI_DWn8aLjDTefM1bnUQj0Jw') #unique key, this is not a real one
+client.run('') #individual bot token
