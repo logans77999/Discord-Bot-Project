@@ -19,4 +19,4 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 client = Client(intents=intents)
-client.run('')
+client.run('') #individual bot token
