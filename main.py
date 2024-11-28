@@ -1,5 +1,6 @@
 import discord
-
+from os import environ
+from dotenv import load_dotenv
 class Client(discord.Client):
 
     async def on_ready(self):
@@ -13,10 +14,15 @@ class Client(discord.Client):
             await message.channel.send(f'Hi there {message.author}')
 
     async def on_member_join(self, member):
-        await client.channel.send(f'Welcome {member} to the Server!') #not working properly right now
+        channel = self.get_channel(1311560487238107156)
+
+        if channel:
+            await channel.send(f'Welcome {member.mention} to the Server!') #not working properly right now
 
 intents = discord.Intents.default()
 intents.message_content = True
 
+load_dotenv()
 client = Client(intents=intents)
-client.run('') #individual bot token
+token = environ["TOKEN"]
+client.run(token) #individual bot token
