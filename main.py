@@ -10,14 +10,14 @@ class Client(discord.Client):
         if message.author == self.user:
             return
         
-        if message.content.startswith('hello') or message.content.startswith('Hello'):
+        if message.content.startswith('hello') or message.content.startswith('Hello'): #sends message if user says "hello"
             await message.channel.send(f'Hi there {message.author}')
 
-    async def on_member_join(self, member):
-        channel = self.get_channel(1311560487238107156)
+    async def on_member_join(self, member): 
+        channel = self.get_channel(1311560487238107156) 
 
         if channel:
-            await channel.send(f'Welcome {member.mention} to the Server!') #not working properly right now
+            await channel.send(f'Welcome {member.mention} to the Server!')  #sends welcome message to a new user
 
 intents = discord.Intents.default()
 intents.message_content = True
