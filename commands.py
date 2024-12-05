@@ -64,7 +64,6 @@ def register_commands(client):
             await interaction.response.send_message("Error accessing Spotify API. Please check the logs.")
             print(f"Spotify API Error: {e}")
 
-
 load_dotenv()
 
 
